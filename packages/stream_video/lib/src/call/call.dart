@@ -665,11 +665,11 @@ class Call {
     final state = this.state.value;
     _logger.i(() => '[accept] state: $state');
 
-    final status = state.status;
-    if (status is! CallStatusIncoming || status.acceptedByMe) {
-      _logger.w(() => '[accept] rejected (invalid status): $status');
-      return Result.error('invalid status: $status');
-    }
+    // final status = state.status;
+    // if (status is! CallStatusIncoming || status.acceptedByMe) {
+    //   _logger.w(() => '[accept] rejected (invalid status): $status');
+    //   return Result.error('invalid status: $status');
+    // }
 
     final outgoingCall = _streamVideo.state.outgoingCall.valueOrNull;
     if (outgoingCall != null && outgoingCall.callCid != callCid) {
